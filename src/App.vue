@@ -9,7 +9,7 @@
     >
 
     <div class="wrapper">
-      <HelloWorld msg="You did it!" />
+      <HelloWorld msg="Test PR" />
 
       <nav>
         <RouterLink to="/">
