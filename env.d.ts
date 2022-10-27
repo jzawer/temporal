@@ -1,6 +1,6 @@
 /// <reference types="vite/client" />
 interface ImportMetaEnv {
-  readonly DEFAULT_LOCALE: string
+  readonly FINHAVA_DEFAULT_LOCALE: string
 }
 
 interface ImportMeta {
