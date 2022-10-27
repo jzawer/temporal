@@ -10,5 +10,6 @@ export default defineConfig({
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))
     }
-  }
+  },
+  envPrefix: ['VITE_', 'FINHAVA_']
 });

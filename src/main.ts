@@ -4,11 +4,14 @@ import PrimeVue from 'primevue/config';
 import router from './router';
 
 import './assets/main.css';
-import './node_modules/primeflex/primeflex.css';
+import '../node_modules/primeflex/primeflex.css';
+import { setupI18n } from './i18n';
 
+const i18n = setupI18n({ locale: import.meta.env.FINHAVA_DEFAULT_LOCALE });
 const app = createApp(App);
 
 app.use(router);
 app.use(PrimeVue);
+app.use(i18n);
 
 app.mount('#app');
