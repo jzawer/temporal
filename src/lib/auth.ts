@@ -1,9 +1,10 @@
-import * as msal from "@azure/msal-browser";
+import * as msal from '@azure/msal-browser';
 
 const msalConfig = {
   auth: {
-    clientId: "",
-    authority: "https://login.microsoftonline.com/common/",
+    clientId: '0a97e016-4618-4a40-b28c-7fd9c8f279db',
+    authority: 'https://login.microsoftonline.com/common/',
+    redirectUri: 'http://localhost:5173',
   },
 };
 

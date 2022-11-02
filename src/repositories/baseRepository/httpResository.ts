@@ -1,15 +1,15 @@
-import type { IResource } from "./../interfaces/IResource";
-import type { IRead } from "../interfaces/IRead";
-import type { IWrite } from "../interfaces/IWrite";
-import httpClient from "@/lib/httpClient";
+import type { IResource } from './../interfaces/IResource';
+import type { IRead } from '../interfaces/IRead';
+import type { IWrite } from '../interfaces/IWrite';
+import httpClient from '@/lib/httpClient';
 
 export default abstract class HttpRepository<T> implements IWrite<T>, IRead<T> {
   private readonly _resource!: IResource;
 
   constructor(resource: IResource) {
     if (!resource || resource.name.length == 0) {
-      console.error("Resource need to create a intance of HttpRepository");
-      throw new Error("Resource need to create a intance of HttpRepository");
+      console.error('Resource need to create a intance of HttpRepository');
+      throw new Error('Resource need to create a intance of HttpRepository');
     }
     this._resource = resource;
   }
