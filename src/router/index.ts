@@ -1,4 +1,4 @@
-import msalInstance from '@/lib/auth';
+import authenticator from '@/lib/auth';
 import { createRouter, createWebHistory } from 'vue-router';
 
 const router = createRouter({
@@ -18,11 +18,10 @@ const router = createRouter({
 });
 
 router.beforeEach(async (to, from) => {
-  await msalInstance.handleRedirectPromise();
-  const accounts = msalInstance.getAllAccounts();
+  const account = authenticator.getActiveAccount();
 
-  if (accounts.length <= 0 && to.name != 'login') return { name: 'login' };
-  else if (accounts.length > 0 && to.name == 'login') {
+  if (!account && to.name != 'login') return { name: 'login' };
+  else if (account && to.name == 'login') {
     return { name: 'home' };
   }
 });

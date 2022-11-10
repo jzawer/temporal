@@ -5,6 +5,7 @@ import httpClient from '@/lib/httpClient';
 
 export default abstract class HttpRepository<T> implements IWrite<T>, IRead<T> {
   private readonly _resource!: IResource;
+  protected readonly httpClient = httpClient;
 
   constructor(resource: IResource) {
     if (!resource || resource.name.length == 0) {
@@ -14,11 +15,11 @@ export default abstract class HttpRepository<T> implements IWrite<T>, IRead<T> {
     this._resource = resource;
   }
 
-  private get resourceUrl() {
+  protected get resourceUrl() {
     return `V${this._resource.version}/${this._resource.name}/`;
   }
 
-  private get entityUrl(): (id: string) => string {
+  protected get entityUrl(): (id: string) => string {
     return (id: string) => (this._resource ? `${this.resourceUrl}/${id}` : id);
   }
 
@@ -34,7 +35,7 @@ export default abstract class HttpRepository<T> implements IWrite<T>, IRead<T> {
     return httpClient.delete(this.entityUrl(id));
   }
 
-  getAll(): Promise<T[]> {
+  getAll(): Promise<Array<T>> {
     return httpClient.get(this.resourceUrl);
   }
 

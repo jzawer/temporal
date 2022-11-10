@@ -1,7 +1,7 @@
-import axios from "axios";
+import axios from 'axios';
 
 const httpClient = axios.create({
-  baseURL: import.meta.env.BASE_URL
+  baseURL: import.meta.env.FINHAVA_API_URL,
 });
 
 export default httpClient;
